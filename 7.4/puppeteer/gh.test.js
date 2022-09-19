@@ -11,6 +11,7 @@ afterEach(() => {
 describe("Github page tests", () => {
 
   beforeEach(async () => {
+    await page.setDefaultTimeout(120000);
     await page.goto("https://github.com/team");
   })
 
