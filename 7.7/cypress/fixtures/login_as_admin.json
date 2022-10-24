@@ -1,0 +1,9 @@
+{
+  "loginTitle": ".login__title",
+  "loginButton": ".login__button",
+  "emailSelector": "label:nth-child(1)  input",
+  "passSelector": "label:nth-child(2)  input",
+  "email": "qamid@qamid.ru",
+  "pass": "qamid",
+  "wrongPass": "qamide"
+}

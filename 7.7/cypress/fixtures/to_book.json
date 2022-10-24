@@ -1,0 +1,6 @@
+{
+  "dayButton": "a.page-nav__day:nth-of-type(3)",
+  "timeButton": "section:nth-child(1)  div:nth-child(2)  ul  li  a",
+  "seatSelection": ".buying-scheme__wrapper > :nth-child(${seat.row}) > :nth-child(${seat.seat})",
+  "acceptButton": ".acceptin-button"
+}
