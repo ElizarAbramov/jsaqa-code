@@ -27,10 +27,6 @@ When('user click on {string}', { timeout: 30000 }, async function (string) {
   return await clickElement(this.page, string);
 });
 
-Wnen('user is on {string} page', { timeout: 30000 }, async function (string) {
-  return await this.page.goto(`http://qamid.tmweb.ru/client${string}.php`)
-});
-
 And("user click on {string}", async function (string) {
   return await clickElement(this.page, string);
 });
@@ -39,16 +35,9 @@ And("user click on {string}", async function (string) {
   return await clickElement(this.page, string);
 });
 
-When('user is on {string} page', async function (string) {
-  return await this.page.goto(`http://qamid.tmweb.ru/client${string}.php`)
-});
 
 And("user click on {string}", async function (string) {
   return await clickElement(this.page, string);
-});
-
-When('user is on {string} page', { timeout: 30000 }, async function (string) {
-  return await this.page.goto(`http://qamid.tmweb.ru/client${string}.php`)
 });
 
 Then('user sees {string}', async function (string) {
@@ -71,7 +60,7 @@ And('user click on {string}', { timeout: 30000 }, async function (string) {
   return await clickElement(this.page, string);
 });
 
-When('user click on {string}', { timeout: 30000 }, async function (string) {
+And('user click on {string}', { timeout: 30000 }, async function (string) {
   return await clickElement(this.page, string);
 });
 
@@ -81,18 +70,6 @@ And('user click on {string}', { timeout: 30000 }, async function (string) {
 
 And("user click on {string}", async function (string) {
   return await clickElement(this.page, string);
-});
-
-When('user click on {string}', { timeout: 30000 }, async function (string) {
-  return await clickElement(this.page, string);
-});
-
-And("user click on {string}", async function (string) {
-  return await clickElement(this.page, string);
-});
-
-When('user is on {string} page', async function (string) {
-  return await this.page.goto(`http://qamid.tmweb.ru/client${string}.php`)
 });
 
 Then('user sees {string}', async function (string) {
@@ -110,7 +87,7 @@ When('user click on {string}', { timeout: 30000 }, async function (string) {
   return await clickElement(this.page, string);
 });
 
-When('user click on {string}', { timeout: 30000 }, async function (string) {
+And('user click on {string}', { timeout: 30000 }, async function (string) {
   return await clickElement(this.page, string);
 });
 
@@ -118,7 +95,7 @@ And("user click on {string}", async function (string) {
   return await clickElement(this.page, string);
 });
 
-Then('user stay at the same page and {string}', async function (string) {
-  const actual = await page.waitForSelector('button[class="acceptin-button"');
-  expect(actual).contain(string);
+Then('user stay at the same page and button disabled is {string}', async function (string) {
+  const actual = await page.$eval('button[class="acceptin-button"', (element) => element.disabled);
+  await expect(actual).to.equal(string);
 });

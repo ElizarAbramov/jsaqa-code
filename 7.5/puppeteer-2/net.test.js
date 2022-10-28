@@ -17,12 +17,9 @@ describe("IdemVKinoHappyPathTests", () => {
 
   test("The first happy path test", async () => {
     await clickElement(page, 'a[data-seance-id="129"]');
-    await page.goto('http://qamid.tmweb.ru/client/hall.php')
     await clickElement(page, 'span:nth-child(3)');
     await clickElement(page, 'button[class="acceptin-button"]');
-    await page.goto("http://qamid.tmweb.ru/client/payment.php");
     await clickElement(page, 'button');
-    await page.goto("http://qamid.tmweb.ru/client/ticket.php");
     const actual = await getText(page, 'h2');
     await expect(actual).contain("Электронный билет");
   });
@@ -31,22 +28,19 @@ describe("IdemVKinoHappyPathTests", () => {
   test("The second happy path test", async () => {
     await clickElement(page, 'a:nth-child(4)');
     await clickElement(page, 'a[data-seance-id="129"]');
-    await page.goto("http://qamid.tmweb.ru/client/hall.php");
     await clickElement(page, 'div:nth-child(1) span:nth-child(4)');
     await clickElement(page, 'button[class="acceptin-button"]');
-    await page.goto('http://qamid.tmweb.ru/client/payment.php');
     await clickElement(page, 'button');
-    await page.goto("http://qamid.tmweb.ru/client/ticket.php");
     const actual = await getText(page, 'h2');
     await expect(actual).contain("Электронный билет");
   });
 
-  test("Sad path test", async () => {
+  test.only("Sad path test", async () => {
+    await clickElement(page, 'a:nth-child(4)');
     await clickElement(page, 'a[data-seance-id="129"]');
-    await page.goto('http://qamid.tmweb.ru/client/hall.php');
     await clickElement(page, 'div:nth-child(1) > span:nth-child(4)');
-    await page.waitForSelector('button[class="acceptin-button"', {
-      disabled: true
-    });
+    await clickElement(page, 'button[class="acceptin-button"');
+    const actual = await page.$eval('button[class="acceptin-button"', (element) => element.disabled);
+    await expect(actual).to.equal(true);
   })
 });

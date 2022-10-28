@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:admin": "cypress run --spec cypress/e2e/admin.spec.js --record --key 06db2e11-29ce-4291-93bf-24b4a6ae3fe4",
+    "test:mainPage": "cypress run --spec cypress/e2e/mainPage.spec.js --record --key 06db2e11-29ce-4291-93bf-24b4a6ae3fe4",
+    "test:to_book": "cypress run --spec cypress/e2e/to_book.spec.js --record --key 06db2e11-29ce-4291-93bf-24b4a6ae3fe4",
+    "test:all": "npm run test:admin & npm run test:mainPage & npm run test:to_book"
   },
   "author": "",
   "license": "ISC",
