@@ -1,4 +1,4 @@
-const seats = require("../fixtures/seats.json");
+const seats = require("C:/jest/jsaqa-code/7.7/cypress/fixtures/seats.json");
 
 Cypress.Commands.add('choosePlace', seats, () => {
     seats.forEach((seat) => {

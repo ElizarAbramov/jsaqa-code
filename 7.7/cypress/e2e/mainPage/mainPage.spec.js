@@ -1,4 +1,4 @@
-const mainPage = require("../fixtures/mainPage.json");
+const mainPage = require("../../fixtures/mainPage.json");
 
 it("Should show main page correctly", () => {
     cy.visit("qamid.tmweb.ru");

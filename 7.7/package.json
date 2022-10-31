@@ -4,14 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:admin": "cypress run --spec cypress/e2e/admin.spec.js --record --key 06db2e11-29ce-4291-93bf-24b4a6ae3fe4",
-    "test:mainPage": "cypress run --spec cypress/e2e/mainPage.spec.js --record --key 06db2e11-29ce-4291-93bf-24b4a6ae3fe4",
-    "test:to_book": "cypress run --spec cypress/e2e/to_book.spec.js --record --key 06db2e11-29ce-4291-93bf-24b4a6ae3fe4",
-    "test:all": "npm run test:admin & npm run test:mainPage & npm run test:to_book"
+    "test:allFolders": "npm-run-all --parallel test:folder1  test:folder2",
+    "test:folder1": "cypress run --spec ./cypress/e2e/admin --record --key 06db2e11-29ce-4291-93bf-24b4a6ae3fe4",
+    "test:folder2": " cypress run  --spec ./cypress/e2e/mainPage --record --key 06db2e11-29ce-4291-93bf-24b4a6ae3fe4",
+    "test:difBrowsers": "npm-run-all --parallel test:electron  test:chrome",
+    "test:electron": "cypress run --browser electron --spec cypress/e2e/admin/admin.spec.js --record --key 06db2e11-29ce-4291-93bf-24b4a6ae3fe4",
+    "test:edge": "cypress run --browser edge --spec cypress/e2e/mainPage/mainPage.spec.js --record --key 06db2e11-29ce-4291-93bf-24b4a6ae3fe4",
+    "test:chrome": "cypress run --browser chrome --spec cypress/e2e/admin/to_book.spec.js --record --key 06db2e11-29ce-4291-93bf-24b4a6ae3fe4",
+    "test:admin": "cypress run --spec cypress/e2e/admin/admin.spec.js --record --key 06db2e11-29ce-4291-93bf-24b4a6ae3fe4",
+    "test:mainPage": "cypress run --spec cypress/e2e/mainPage/mainPage.spec.js --record --key 06db2e11-29ce-4291-93bf-24b4a6ae3fe4",
+    "test:to_book": "cypress run --spec cypress/e2e/admin/to_book.spec.js --record --key 06db2e11-29ce-4291-93bf-24b4a6ae3fe4",
+    "test:all": "npm-run-all --parallel test:admin test:mainPage  test:to_book"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^10.10.0"
+    "cypress": "^10.10.0",
+    "npm-run-all": "^4.1.5"
   }
 }

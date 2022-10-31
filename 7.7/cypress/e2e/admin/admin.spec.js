@@ -1,4 +1,4 @@
-const login_as_admin = require("../fixtures/login_as_admin.json");
+const login_as_admin = require("../../fixtures/login_as_admin.json");
 
 it("Should log in as admin", () => {
     cy.visit("http://qamid.tmweb.ru/admin");
